@@ -21,6 +21,8 @@ RUN apt-get update && apt-get install -y libpng12-dev libjpeg-dev libpq-dev wget
     echo ';sendmail (do not remove)'; \
     echo ';sendmail_path'; \
     echo 'date.timezone = "UTC"'; \
+    echo 'post_max_size = 20M'; \
+    echo 'memory_limit = 192M'; \
   } > /usr/local/etc/php/conf.d/php.ini \
 
 ## Install sSMTP for mail support
