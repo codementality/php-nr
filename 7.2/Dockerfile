@@ -4,6 +4,7 @@ MAINTAINER "Lisa Ridley, lisa@codementality.com"
 \
 # install the PHP extensions we need
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    wget \
     apt-utils \
     autoconf \
     curl \
