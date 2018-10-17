@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zip \
     && pecl install redis-4.0.1 \
     && pecl install memcached-3.0.4 \
+    && pecl install mcrypt-1.0.1 \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-configure bz2 --with-bz2 \
@@ -48,7 +49,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && docker-php-ext-install sysvmsg sysvsem \
     && docker-php-ext-install sysvshm tidy tokenizer wddx xml \
     && docker-php-ext-install xmlrpc xmlwriter zip \
-    && docker-php-ext-install mcrypt \
 # set recommended PHP.ini settings
   # see https://secure.php.net/manual/en/opcache.installation.php
   && { \
@@ -77,17 +77,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
 #install xdebug
   && mkdir -p ~/downloads \
-  && wget -O ~/downloads/xdebug-2.4.0.tgz http://xdebug.org/files/xdebug-2.4.0.tgz \
+  && wget -O ~/downloads/xdebug-2.6.1.tgz http://xdebug.org/files/xdebug-2.6.1.tgz \
   && cd ~/downloads \
-  && tar -xvzf xdebug-2.4.0.tgz \
+  && tar -xvzf xdebug-2.6.1.tgz \
   && cd xdebug-2.4.0 \
   && phpize \
   && ./configure \
   && make \
   && make install \
   && cd .. \
-  && rm -Rf xdebug-2.4.0 \
-  && rm xdebug-2.4.0.tgz
+  && rm -Rf xdebug-2.6.1 \
+  && rm xdebug-2.6.1.tgz
 COPY ./ini/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Register the COMPOSER_HOME environment variable
