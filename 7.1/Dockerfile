@@ -77,7 +77,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
 #install xdebug
   && mkdir -p ~/downloads \
-  && wget -O ~/downloads/xdebug-2.4.0.tgz http://xdebug.org/files/xdebug-2.4.0.tgz \
+  && wget -O ~/downloads/xdebug-2.4.0.tgz https://xdebug.org/files/xdebug-2.4.0.tgz \
   && cd ~/downloads \
   && tar -xvzf xdebug-2.4.0.tgz \
   && cd xdebug-2.4.0 \
