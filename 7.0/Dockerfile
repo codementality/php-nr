@@ -70,12 +70,6 @@ RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
 # Install Composer
   && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} && rm -rf /tmp/composer-setup.php \
 
-## INSTALL DRUSH
-  && php -r "readfile('https://s3.amazonaws.com/files.drush.org/drush.phar');" > drush \
-  && chmod +x drush \
-  && mv drush /usr/local/bin \
-  && drush init -y \
-
 ## Changes ownership of /usr/local/etc to www-data:www-data
   && chown -Rf www-data:www-data /usr/local/etc \
   && chown -Rf www-data:www-data /var/www \
