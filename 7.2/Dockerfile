@@ -77,17 +77,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
 #install xdebug
   && mkdir -p ~/downloads \
-  && wget -O ~/downloads/xdebug-2.4.0.tgz https://xdebug.org/files/xdebug-2.4.0.tgz \
+  && wget -O ~/downloads/xdebug-2.6.1.tgz https://xdebug.org/files/xdebug-2.6.1.tgz \
   && cd ~/downloads \
-  && tar -xvzf xdebug-2.4.0.tgz \
-  && cd xdebug-2.4.0 \
+  && tar -xvzf xdebug-2.6.1.tgz \
+  && cd xdebug-2.6.1 \
   && phpize \
   && ./configure \
   && make \
   && make install \
   && cd .. \
-  && rm -Rf xdebug-2.4.0 \
-  && rm xdebug-2.4.0.tgz
+  && rm -Rf xdebug-2.6.1 \
+  && rm xdebug-2.6.1.tgz
 COPY ./ini/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 \
 # Register the COMPOSER_HOME environment variable
